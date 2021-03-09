@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card-content>
+        <div>
+            <div class="align-center">
+                <div>
+                    <mat-form-field>
+                        <mat-label>Email address</mat-label>
+                        <input matInput placeholder="try admin@admin.com" [(ngModel)]="username">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" [(ngModel)]="password" placeholder="try 123456">
+                    </mat-form-field>
+                </div>
+                <mat-error *ngIf="error">
+                        <mat-icon class="vertical-align">error</mat-icon> 
+                        {{error}}
+                </mat-error>
+                <br>
+                <button mat-button (click)="login(username, password)">Login</button>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+      
