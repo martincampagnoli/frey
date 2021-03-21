@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FeedService } from 'src/app/services/feed/feed.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { CalendarOptions } from '@fullcalendar/angular';
 
 @Component({
   selector: 'app-calendar',
@@ -13,6 +14,11 @@ export class CalendarComponent implements OnInit {
   mFeed: Array<any> = [];
   newComment: Array<any> = [];
   currentUser: any;
+
+  calendarOptions: CalendarOptions = {
+    initialView: 'dayGridMonth'
+  };
+
 
   constructor(private feedService: FeedService, private authService: AuthService) {
     this.authService.currentUser.subscribe(user => this.currentUser = user);

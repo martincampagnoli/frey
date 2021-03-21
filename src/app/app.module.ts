@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
@@ -46,6 +48,10 @@ const firebaseConfig = {
   appId: '1:612367989184:web:e2989b57179283606cf025'
 };
 
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin
+]);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +67,7 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     FormsModule,
+    FullCalendarModule,
     ...mat
   ],
   exports: [ ...mat ],
