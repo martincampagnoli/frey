@@ -18,7 +18,7 @@ export class LoginComponent {
     this.authService.login(user, pass).subscribe(
       r => {
         this.authService.storeUserInfo(r.user.uid);
-        this.router.navigate(['']);
+        this.router.navigate(['/dashboard']);
       },
       e => this.error = e.message
     );

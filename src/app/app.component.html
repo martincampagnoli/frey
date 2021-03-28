@@ -1,19 +1,7 @@
-<!--<mat-toolbar color="primary">
-  <span>Frey App</span>&nbsp;<mat-icon>people</mat-icon>
-  <span class="feed-spacer"></span>
-  <span *ngIf="currentUser" class="mobile-hidden"> Welcome, {{ currentUser.name }}</span>
-  <button mat-button *ngIf="getCurrentRoute() === '/login'" (click)="goTo('')"><mat-icon>line_weight</mat-icon></button>
-  <button mat-button *ngIf="!currentUser && getCurrentRoute() !== '/login'" (click)="goTo('login')"><mat-icon>login</mat-icon></button>
-  <button mat-button *ngIf="currentUser" [matMenuTriggerFor]="appMenu"><mat-icon>settings</mat-icon></button>
-</mat-toolbar>
-<mat-menu #appMenu="matMenu">
-    <button mat-menu-item (click)="openDialog()"> <mat-icon>post_add</mat-icon>Post something </button>
-    <button mat-menu-item (click)="logout()"><mat-icon>exit_to_app</mat-icon>Logout</button>
-</mat-menu>-->
 <div class="az-header">
   <div class="container">
     <div class="az-header-left">
-      <a href="index.html" class="az-logo"><span></span> Frey</a>
+      <a href="/dashboard" class="az-logo"><span></span> Frey</a>
       <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
     </div><!-- az-header-left -->
     <div class="az-header-menu">
@@ -23,7 +11,7 @@
       </div><!-- az-header-menu-header -->
       <ul class="nav">
         <li class="nav-item active show">
-          <a href="/" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
+          <a href="/dashboard" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
         </li>
         <li class="nav-item">
           <a href="/calendar" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Calendar</a>

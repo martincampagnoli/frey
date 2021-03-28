@@ -14,14 +14,37 @@ export class CalendarComponent implements OnInit {
   mFeed: Array<any> = [];
   newComment: Array<any> = [];
   currentUser: any;
+  //get event data from firebase
+  calendarEvents = [
+    { title: 'event 1', date: '2021-03-28' }
+  ];
 
   calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth'
+    initialView: 'dayGridMonth',
+    //dateClick: this.handleDateClick.bind(this), // bind is important!
+    events: this.calendarEvents,
   };
+
+
+  handleDateClick: any;
 
 
   constructor(private feedService: FeedService, private authService: AuthService) {
     this.authService.currentUser.subscribe(user => this.currentUser = user);
+  }
+
+  dateClick() {
+    alert("test");
+  }
+
+  addEvent() {
+    this.calendarEvents.push(
+      { title: 'event 3', date: '2021-04-01' }
+    );
+  }
+
+  modifyTitle(eventIndex, newTitle) {
+    this.calendarEvents[eventIndex].title = newTitle;
   }
 
   ngOnInit(): void {
@@ -41,26 +64,4 @@ export class CalendarComponent implements OnInit {
     return list.filter( e => e.uid === obj.uid).length > 0;
   }
 
-  toggle(post): void {
-    post.show = !post.show;
-  }
-
-  saveComment(post, index): void {
-    if (!this.newComment[index]){
-      return;
-    }
-    this.feedService.saveComment(this.newComment[index], post);
-    this.newComment[index] = '';
-  }
-
-  addLike(post): void {
-    this.feedService.addLike(post);
-  }
-
-  canLike(post): boolean{
-    if (!this.currentUser) { return false; }
-    if (!post.likesAuthors) { return true; }
-    if (!post.likesAuthors.includes(this.currentUser.uid)) { return true; }
-    return false;
-  }
 }

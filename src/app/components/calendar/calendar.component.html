@@ -2,36 +2,25 @@
   <div class="container">
     <div class="az-content-left az-content-left-components">
       <div class="component-item">
-        <label>UI Elements</label>
+        <label>Calendar options</label>
         <nav class="nav flex-column">
-          <a href="elem-buttons.html" class="nav-link">Buttons</a>
-          <a href="elem-dropdown.html" class="nav-link">Dropdown</a>
-          <a href="elem-icons.html" class="nav-link">Icons</a>
+          <a (click)="addEvent()" class="nav-link">Add event</a>
+          <a class="nav-link">Show paid events</a>
+          <a class="nav-link">TBD</a>
         </nav>
 
-        <label>Forms</label>
-        <nav class="nav flex-column">
-          <a href="form-elements.html" class="nav-link">Form Elements</a>
-        </nav>
-
-        <label>Charts</label>
-        <nav class="nav flex-column">
-          <a href="chart-chartjs.html" class="nav-link active">ChartJS</a>
-        </nav>
-
-        <label>Tables</label>
-        <nav class="nav flex-column">
-          <a href="table-basic.html" class="nav-link">Basic Tables</a>
-        </nav>
       </div><!-- component-item -->
 
     </div><!-- az-content-left -->
     <div class="az-content-body pd-lg-l-40 d-flex flex-column">
       <div class="az-content-breadcrumb">
-        <span>Calendar</span>
+        <!--<span>Calendar</span>-->
       </div>
       
-      <full-calendar [options]="calendarOptions"></full-calendar>
+      <full-calendar 
+        [options]="calendarOptions"
+        deepChangeDetection="true">
+      </full-calendar>
 
 
 
